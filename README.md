@@ -19,6 +19,7 @@ With XmasClash game, users will be able to:
 
 ## **Wireframe:**
 
+![alt text](JS-Game-Wireframe.png)
 
 
 ## **Technologies, Libraries, APIs**
