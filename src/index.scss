@@ -1,0 +1,83 @@
+body {
+    background: url("../images/christmas-background.jpg"); //no-repeat center fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: cursive;
+    color: rgb(250, 249, 249);
+    text-align: center;
+}
+
+.movement {
+    text-align: center; 
+}
+
+.score {
+    text-align: center;
+}
+
+.player {
+    text-align: center;
+}
+
+.title {
+    text-align: center;
+}
+
+.level {
+    text-align: left;
+    color: red;
+}
+
+.goal {
+    text-align: left;
+    color: red;
+}
+
+#board {
+    width: 500px;
+    height: 500px;
+    background-color: rgb(112, 169, 188);
+    border: 5px solid rgb(245, 246, 247);
+    border-radius: 10px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#board img {
+    width: 55px;
+    height: 55px;
+}
+
+
+.gameOver-modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+.gameOver-inner {
+  background-color: rgb(247, 244, 244);
+  background-color: rgba(56, 85, 128, 0.4);
+  margin: 5% auto; /* 5% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%; /* Could be more or less, depending on screen size */
+  height: 50%;
+}
+
