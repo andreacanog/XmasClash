@@ -15,6 +15,7 @@ export default class Board {
         this.columns = 9; 
         this.score = 0; 
         this.movements = 20;
+        this.updatedByUser = false; 
     }
 
     startGame() {
@@ -25,8 +26,7 @@ export default class Board {
 
                 img.id = r.toString() + "-" + c.toString(); // => img id = "0-0" "0-1" "0-2" (position)
                 img.src = ballsSource + this.randomBall() + ".jpg" // =>  "images/Blue.png"
-                // console.log("img: ", img);
-                // this.dragBall(img)
+                
                 this.makeBallDragable(img)
                 document.getElementById("board").append(img);
 
@@ -36,7 +36,11 @@ export default class Board {
             this.grid.push(row); //2D array  [[img, img, img, img, img, img, img, img]]
         }
 
-        // console.log("grid: ", this.grid);
+        // if (this.updateByUser === false) {
+        //     this.movements += 0
+        // }
+
+        //console.log(this.updateByUser)
     }
 
     randomBall() {
@@ -56,16 +60,17 @@ export default class Board {
 
     dragStart() {
         currentBall = this;
-        // console.log("hit the dragStart");
-        // console.log("img: ", img);
+        //this.updateByUser = true; 
     }
 
     dragOver(e) {
         e.preventDefault()
+        
     }
 
     dragEnter(e) {
         e.preventDefault()
+        
     }
 
     dragLeave(e) {
@@ -75,15 +80,14 @@ export default class Board {
 
     dragDrop() {
         otherBall = this; 
-        // console.log("hit the dragEnd");
-        // console.log("img: ", img);
+       
     }
 
     dragEnd() {
+        this.updatedByUser = true; 
         if (currentBall.src.includes("blank") || otherBall.src.includes("blank")) { // check that a ball does not swap with a blank img
             return; 
         }
-
 
         let currentCoords = currentBall.id.split("-") // "0-0" => ['0','0']
         let row1 = parseInt(currentCoords[0]);  // '0' => 0
@@ -109,32 +113,63 @@ export default class Board {
             //swap images
             currentBall.src = otherImg;
             otherBall.src = currentImg;
+            let valid1 = this.validMoveForThree()
+            let valid2 = this.validMoveForFour()
+            let valid3 = this.validMoveForFive()
+            
 
-            let valid = this.validMove()
-
-            if (!valid) {
+            if (!valid3 && !valid2 && !valid1) {
                 let currentImg = currentBall.src; 
                 let otherImg = otherBall.src;
             
                 //swap images
                 currentBall.src = otherImg;
                 otherBall.src = currentImg;
+                this.movements += 1;
+            }
+            
+        
+            if (this.updatedByUser) {
+                this.movements -= 1;
+                
             }
         } 
+        this.updatedByUser = false; 
+       
     }
 
-    clashBalls() {
-        this.clashThree()
-        this.clashFour()
+
+    clash() {
         this.clashFive()
+        this.clashFour()
+        this.clashThree()
         document.getElementById("score").innerText = this.score; // to get the score 
         document.getElementById("movements").innerText = this.movements
     }
 
+    // clashBalls() {
+    //     let row = 0
+    //     while (row < this.rows) {
+
+    //         let col = 0
+    //         while (col < this.columns - 4) {
+    //             let ball1 = this.grid[row][col];
+    //             let ball2 = this.grid[row][col + 1];
+    //             let ball3 = this.grid[row][col + 2];
+    //             let ball4 = this.grid[row][col + 3];
+    //             let ball5 = this.grid[row][col + 4];
+    //             if ()
+    //         }
+
+    //         row++
+            
+    //     }
+
+    // }
+
     clashThree() {
         for (let row = 0; row < this.rows; row++) {
             for (let col = 0; col < this.columns - 2; col++) {
-                //console.log("grid: ", this.grid)
                 let ball1 = this.grid[row][col];
                 let ball2 = this.grid[row][col + 1];
                 let ball3 = this.grid[row][col + 2];
@@ -144,7 +179,8 @@ export default class Board {
                     ball2.src = './images/blank.png'
                     ball3.src = './images/blank.png'
                     this.score += 10;
-                    this.movements -= 1;
+                    //this.movements -= 1;
+                    this.checkIfGameWonOrLost();
                 }
             }
         }
@@ -157,18 +193,20 @@ export default class Board {
                 let ball3 = this.grid[row + 2][col];
 
                 if ((ball1.src === ball2.src) && (ball2.src === ball3.src) && !ball1.src.includes("blank") ) {
+                    
                     ball1.src = './images/blank.png'
                     ball2.src = './images/blank.png'
                     ball3.src = './images/blank.png'
                     this.score += 10;
-                    this.movements -= 1;
+                    // this.movements -= 1;
+                    this.checkIfGameWonOrLost();
                 }
             }
         }
-
     }
 
     clashFour() {
+
         for (let row = 0; row < this.rows; row++) {
             for (let col = 0; col < this.columns - 3; col++) {
                 
@@ -176,14 +214,17 @@ export default class Board {
                 let ball2 = this.grid[row][col + 1];
                 let ball3 = this.grid[row][col + 2];
                 let ball4 = this.grid[row][col + 3];
-
-                if ((ball1.src === ball2.src) && (ball2.src === ball3.src) && (ball3.src === ball4.sr ) && !ball1.src.includes("blank") ) {
+              
+                if ((ball1.src === ball2.src) && (ball2.src === ball3.src) && (ball3.src === ball4.src) && !ball1.src.includes("blank")) {
                     ball1.src = './images/blank.png'
                     ball2.src = './images/blank.png'
                     ball3.src = './images/blank.png'
                     ball4.src = './images/blank.png'
-                    this.score += 20
+                    this.score += 20;
+                    // this.movements -= 1;
+                    this.checkIfGameWonOrLost();
                 }
+
             }
         }
 
@@ -195,16 +236,19 @@ export default class Board {
                 let ball3 = this.grid[row + 2][col];
                 let ball4 = this.grid[row + 3][col];
 
-                if ((ball1.src === ball2.src) && (ball2.src === ball3.src) && (ball3.src === ball4.sr ) && !ball1.src.includes("blank") ) {
+            
+
+                if ((ball1.src === ball2.src) && (ball2.src === ball3.src) && (ball3.src === ball4.src) && !ball1.src.includes("blank")) {
                     ball1.src = './images/blank.png'
                     ball2.src = './images/blank.png'
                     ball3.src = './images/blank.png'
                     ball4.src = './images/blank.png'
-                    this.score += 20
+                    this.score += 20;
+                    // this.movements -= 1;
+                    this.checkIfGameWonOrLost();
                 }
             }
         }
-
     }
 
     clashFive() {
@@ -216,19 +260,23 @@ export default class Board {
                 let ball3 = this.grid[row][col + 2];
                 let ball4 = this.grid[row][col + 3];
                 let ball5 = this.grid[row][col + 4];
+        
 
-                if ((ball1.src === ball2.src) && (ball2.src === ball3.src) && (ball3.src === ball4.sr ) && (ball4.src === ball5.sr ) && !ball1.src.includes("blank") ) {
+                if ((ball1.src === ball2.src) && (ball2.src === ball3.src) && (ball3.src === ball4.src) && (ball4.src === ball5.src) && !ball1.src.includes("blank")) {
+            
                     ball1.src = './images/blank.png'
                     ball2.src = './images/blank.png'
                     ball3.src = './images/blank.png'
                     ball4.src = './images/blank.png'
-                    ball4.src = './images/blank.png'
-                    this.score += 30
+                    ball5.src = './images/blank.png'
+                    this.score += 30;
+                    // this.movements -= 1;
+                    this.checkIfGameWonOrLost();
                 }
             }
         }
-
-
+        
+        
         for (let col = 0; col < this.rows; col++) {
             for (let row = 0; row < this.columns - 4; row++) {
                 let ball1 = this.grid[row][col];
@@ -236,21 +284,23 @@ export default class Board {
                 let ball3 = this.grid[row + 2][col];
                 let ball4 = this.grid[row + 3][col];
                 let ball5 = this.grid[row + 4][col];
-
-                if ((ball1.src === ball2.src) && (ball2.src === ball3.src) && (ball3.src === ball4.sr ) && (ball4.src === ball5.sr ) && !ball1.src.includes("blank") ) {
+                
+                if ((ball1.src === ball2.src) && (ball2.src === ball3.src) && (ball3.src === ball4.src) && (ball4.src === ball5.src) && !ball1.src.includes("blank") ) {
+            
                     ball1.src = './images/blank.png'
                     ball2.src = './images/blank.png'
                     ball3.src = './images/blank.png'
                     ball4.src = './images/blank.png'
-                    this.score += 30
+                    ball5.src = './images/blank.png'
+                    this.score += 30;
+                    // this.movements -= 1;
+                    this.checkIfGameWonOrLost();
                 }
             }
         }
-
     }
 
-    validMove() {
-        this.gameOver();
+    validMoveForThree() {
         for (let row = 0; row < this.rows; row++) {
             for (let col = 0; col < this.columns - 2; col++) {
                 let ball1 = this.grid[row][col];
@@ -275,8 +325,75 @@ export default class Board {
                 }
             }
         }
-
+    
         return false; 
+    }
+
+    validMoveForFour() {
+
+        for (let row = 0; row < this.rows; row++) {
+            for (let col = 0; col < this.columns - 3; col++) {
+                
+                let ball1 = this.grid[row][col];
+                let ball2 = this.grid[row][col + 1];
+                let ball3 = this.grid[row][col + 2];
+                let ball4 = this.grid[row][col + 3];
+                
+                if ((ball1.src === ball2.src) && (ball2.src === ball3.src) && (ball3.src === ball4.src) && !ball1.src.includes("blank")) {
+                    return true; 
+                }
+                
+            }
+        }
+        
+        
+        for (let col = 0; col < this.rows; col++) {
+            for (let row = 0; row < this.columns - 3; row++) {
+            let ball1 = this.grid[row][col];
+            let ball2 = this.grid[row + 1][col];
+            let ball3 = this.grid[row + 2][col];
+            let ball4 = this.grid[row + 3][col];
+
+                if ((ball1.src === ball2.src) && (ball2.src === ball3.src) && (ball3.src === ball4.src) && !ball1.src.includes("blank")) {
+                    return true;
+                } 
+            }
+        }
+    
+    }
+
+
+    validMoveForFive() {
+        for (let row = 0; row < this.rows; row++) {
+            for (let col = 0; col < this.columns - 4; col++) {
+               
+                let ball1 = this.grid[row][col];
+                let ball2 = this.grid[row][col + 1];
+                let ball3 = this.grid[row][col + 2];
+                let ball4 = this.grid[row][col + 3];
+                let ball5 = this.grid[row][col + 4];
+        
+
+                if ((ball1.src === ball2.src) && (ball2.src === ball3.src) && (ball3.src === ball4.src) && (ball4.src === ball5.src) && !ball1.src.includes("blank")) {
+                    return true; 
+                }
+            }
+        }
+
+
+        for (let col = 0; col < this.rows; col++) {
+            for (let row = 0; row < this.columns - 4; row++) {
+                let ball1 = this.grid[row][col];
+                let ball2 = this.grid[row + 1][col];
+                let ball3 = this.grid[row + 2][col];
+                let ball4 = this.grid[row + 3][col];
+                let ball5 = this.grid[row + 4][col];
+
+                if ((ball1.src === ball2.src) && (ball2.src === ball3.src) && (ball3.src === ball4.src) && (ball4.src === ball5.src) && !ball1.src.includes("blank") ) {
+                    return true; 
+                }
+            }
+        }
     }
 
 
@@ -306,9 +423,21 @@ export default class Board {
         }
     }
 
+    checkIfGameWonOrLost() {
+        this.gameOver();
+        this.gameWon();
+    }
+
+    
     gameOver() {
         if (this.movements === 0) {
-            document.getElementById("gameOver-modal").style.display = "block";
+            document.getElementById("gameOver").style.display = "block";
+        }
+    }
+
+    gameWon() {
+        if (this.score >= 500) {
+            document.getElementById("gameWon").style.display = "block";
         }
     }
 
