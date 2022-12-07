@@ -23,14 +23,13 @@ header {
   font-size: 60px;
   color: white;
   text-shadow: rgb(113, 118, 38);
-  padding-left: 72px;
+  padding-left: 87px;
 }
 
 .score, .movement {
   font-size: 45px;
   color: rgb(255, 255, 255);
   text-shadow: 4px 4px 8px rgb(48, 101, 65);
-  text-transform: uppercase;
   font-weight: 200;
 }
 
@@ -211,6 +210,7 @@ header {
   display: flex;
   align-items: flex-end;
   justify-content: space-around;
+  margin-top: -60px;
 }
 
 .button-container2 {
