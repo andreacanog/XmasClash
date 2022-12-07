@@ -1,6 +1,7 @@
-const balls = ["Blue", "Green", "Purple", "Red", "Yellow"];
+const balls = ["Pink", "Green", "White", "Red", "Yellow"];
+const ballsWithStars = ["GreenLines", "PinkLines", "RedLines", "YellowLines", "WhiteLines"]
 const background  = new Image()
-background.src = './images/christmas-background.jpg'
+background.src = "./images/background.png"
 const ballsSource = './images/'
 let currentBall;
 let otherBall;
@@ -9,13 +10,20 @@ import Game from './game.js'
 
 export default class Board {
 
-    constructor (){
+    constructor () {
         this.grid = [];
         this.rows = 9
         this.columns = 9; 
         this.score = 0; 
         this.movements = 20;
-        this.updatedByUser = false; 
+        this.updatedByUser = false;
+        this.ballObj = { 
+            "GreenStar.png": "Green.png", 
+            "PinkStar.png": "Pink.png",
+            "RedStar.png": "Red.png", 
+            "WhiteStar.png": "White.png", 
+         "  YellowStar.png": "Yellow.png"
+        };
     }
 
     startGame() {
@@ -25,7 +33,7 @@ export default class Board {
                 let img = document.createElement("img");
 
                 img.id = r.toString() + "-" + c.toString(); // => img id = "0-0" "0-1" "0-2" (position)
-                img.src = ballsSource + this.randomBall() + ".jpg" // =>  "images/Blue.png"
+                img.src = ballsSource + this.randomBall() + ".png" // =>  "images/Blue.png"
                 
                 this.makeBallDragable(img)
                 document.getElementById("board").append(img);
@@ -45,6 +53,9 @@ export default class Board {
 
     randomBall() {
         return balls[Math.floor(Math.random() * balls.length)];
+    }
+    randomBallWithLines() {
+        return ballsWithStars[Math.floor(Math.random() * ballsWithStars.length)];
     }
 
 
@@ -147,34 +158,26 @@ export default class Board {
         document.getElementById("movements").innerText = this.movements
     }
 
-    // clashBalls() {
-    //     let row = 0
-    //     while (row < this.rows) {
-
-    //         let col = 0
-    //         while (col < this.columns - 4) {
-    //             let ball1 = this.grid[row][col];
-    //             let ball2 = this.grid[row][col + 1];
-    //             let ball3 = this.grid[row][col + 2];
-    //             let ball4 = this.grid[row][col + 3];
-    //             let ball5 = this.grid[row][col + 4];
-    //             if ()
-    //         }
-
-    //         row++
-            
-    //     }
-
-    // }
-
     clashThree() {
         for (let row = 0; row < this.rows; row++) {
             for (let col = 0; col < this.columns - 2; col++) {
                 let ball1 = this.grid[row][col];
                 let ball2 = this.grid[row][col + 1];
                 let ball3 = this.grid[row][col + 2];
+                // let haveStar = this.checkIfWeHaveStart(ball1, ball2, ball3);
+                let haveStar = false
+                let matchingStar = false;
 
-                if ((ball1.src === ball2.src) && (ball2.src === ball3.src) && !ball1.src.includes("blank") ) {
+                // check if matching star only if we have a star. 
+                // haveStar = this.checkIfWeHaveStart()
+
+                // if (haveStar !== false) {
+                //     matchingStar = this.allowThreeWithStar(ball1, ball2, ball3, haveStar);
+                // }
+
+                // let matchingStart = this.allowThreeWithStar(ball1.src, ball2.src, ball3.src);
+
+                if (((ball1.src === ball2.src) && (ball2.src === ball3.src) || matchingStar) && !ball1.src.includes("blank") ) {
                     ball1.src = './images/blank.png'
                     ball2.src = './images/blank.png'
                     ball3.src = './images/blank.png'
@@ -191,9 +194,15 @@ export default class Board {
                 let ball1 = this.grid[row][col];
                 let ball2 = this.grid[row + 1][col];
                 let ball3 = this.grid[row + 2][col];
+                // let haveStar = this.checkIfWeHaveStart(ball1, ball2, ball3);
+                let haveStar = false;
+                let matchingStar = false;
 
-                if ((ball1.src === ball2.src) && (ball2.src === ball3.src) && !ball1.src.includes("blank") ) {
-                    
+                // if (haveStar !== false) {
+                //     matchingStar = this.allowThreeWithStar(ball1, ball2, ball3, haveStar);
+                // }
+
+                if (((ball1.src === ball2.src) && (ball2.src === ball3.src) || matchingStar) && !ball1.src.includes("blank") ) {
                     ball1.src = './images/blank.png'
                     ball2.src = './images/blank.png'
                     ball3.src = './images/blank.png'
@@ -219,7 +228,7 @@ export default class Board {
                     ball1.src = './images/blank.png'
                     ball2.src = './images/blank.png'
                     ball3.src = './images/blank.png'
-                    ball4.src = './images/blank.png'
+                    ball4.src = ballsSource + this.randomBallWithLines() + ".png" 
                     this.score += 20;
                     // this.movements -= 1;
                     this.checkIfGameWonOrLost();
@@ -242,7 +251,7 @@ export default class Board {
                     ball1.src = './images/blank.png'
                     ball2.src = './images/blank.png'
                     ball3.src = './images/blank.png'
-                    ball4.src = './images/blank.png'
+                    ball4.src =  ballsSource + this.randomBallWithLines() + ".png" 
                     this.score += 20;
                     // this.movements -= 1;
                     this.checkIfGameWonOrLost();
@@ -301,13 +310,23 @@ export default class Board {
     }
 
     validMoveForThree() {
+
         for (let row = 0; row < this.rows; row++) {
             for (let col = 0; col < this.columns - 2; col++) {
                 let ball1 = this.grid[row][col];
                 let ball2 = this.grid[row][col + 1];
                 let ball3 = this.grid[row][col + 2];
+                // let haveStar = this.checkIfWeHaveStart(ball1, ball2, ball3);
+                let haveStar = false;
+                let matchingStar = false;
+                
+                if (haveStar !== false) {
+                    matchingStar = this.allowThreeWithStar(ball1, ball2, ball3, haveStar);
+                }
+                console.log(" horizontal haveStar: ", haveStar);
+                console.log(" horizontal matchingStar: ", matchingStar);
 
-                if ((ball1.src === ball2.src) && (ball2.src === ball3.src) && !ball1.src.includes("blank") ) {
+                if (((ball1.src === ball2.src) && (ball2.src === ball3.src) || matchingStar) && !ball1.src.includes("blank") ){
                     return true;
                 }
             }
@@ -319,8 +338,17 @@ export default class Board {
                 let ball1 = this.grid[row][col];
                 let ball2 = this.grid[row + 1][col];
                 let ball3 = this.grid[row + 2][col];
+                // let haveStar = this.checkIfWeHaveStart(ball1, ball2, ball3);
+                let haveStar = false;
+                let matchingStar = false;
 
-                if ((ball1.src === ball2.src) && (ball2.src === ball3.src) && !ball1.src.includes("blank") ) {
+                if (haveStar !== false) {
+                    matchingStar = this.allowThreeWithStar(ball1, ball2, ball3, haveStar);
+                }
+                console.log(" vertical haveStar: ", haveStar);
+                console.log(" vertical matchingStar: ", matchingStar);
+
+                if (((ball1.src === ball2.src) && (ball2.src === ball3.src) || matchingStar) && !ball1.src.includes("blank") ) {
                     return true; 
                 }
             }
@@ -418,7 +446,7 @@ export default class Board {
     populateBall() {
         for (let col = 0; col < this.columns; col++) {
             if (this.grid[0][col].src.includes("blank")) {
-                this.grid[0][col].src = ballsSource + this.randomBall() + ".jpg";
+                this.grid[0][col].src = ballsSource + this.randomBall() + ".png";
             }
         }
     }
@@ -436,10 +464,60 @@ export default class Board {
     }
 
     gameWon() {
-        if (this.score >= 500) {
+        if (this.score >= 1000) {
             document.getElementById("gameWon").style.display = "block";
         }
     }
+
+    // checkIfWeHaveStart(ball1, ball2, ball3) {
+    //     console.log("checkIfWeHaveStart");
+    //     let balls = [ball1, ball2, ball3];
+    //     for (let i = 0; i < balls.length; i++) {
+    //         let ball = balls[i].src.split("/")[8];
+    //         console.log("in checkIfWeHaveStart ball: ", ball);
+    //         if (this.ballObj[ball] !== undefined) {
+    //             return [ball, i];
+    //         }
+    //     }
+    //     return false;
+    // }
+
+
+    // allowThreeWithStar(ball1, ball2, ball3, hasStar) {
+    //     console.log("hit allowThreeWithStar ");
+    //     // let ballObj = { "GreenStar.png": "Green.png", 
+    //     //                 "PinkStar.png": "Pink.png",
+    //     //                  "RedStar.png": "Red.png", 
+    //     //                  "WhiteStar.png": "White.png", 
+    //     //                  "YellowStar.png": "Yellow.png"
+    //     //             }
+
+    //     let arr = [ball1, ball2, ball3]
+    //     let newArr = [];
+    //     for (let i = 0; i < arr.length; i++) {
+    //         let currBall = arr[i].src.split("/")[8];
+    //         newArr.push(currBall);
+    //     }
+    //     newArr[hasStar[1]] = hasStar[0];
+    //     // let starIdx;
+    //     // let starBall = arr.forEach((ball, idx) => {
+    //     //     let currentBall = ball.split("/")[8];
+    //     //     console.log("currentBall: ", currentBall);
+    //     //     console.log("inside each - ball: ", ball)
+    //     //     if (this.ballObj[currentBall] !== undefined) {
+    //     //         console.log("inside the each and if");
+    //     //         starIdx = idx;
+    //     //         return currentBall;
+    //     //     }
+    //     // });
+    //     // console.log("starBall: ", starBall);
+    //     // console.log("starIdx: ", starIdx)
+    //     // let coloredBall = this.ballObj[starBall];
+    //     // // if (coloredBall == ball2 && coloredBall == )
+    //     // arr[starIdx] = coloredBall;
+    //     return newArr[0] === newArr[1] && newArr[1] === newArr[2];
+
+    // }
 
 }
 

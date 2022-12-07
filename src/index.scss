@@ -1,44 +1,49 @@
 body {
-    background: url("../images/christmas-background.jpg"); //no-repeat center fixed;
+    background: url("../images/background.png"); //no-repeat center fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    font-family: cursive;
-    color: rgb(250, 249, 249);
-    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif, sans-serif;
+    font-style: italic;
+    color: rgb(140, 142, 146);
+    // text-align: center;
+}
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
 }
 
-.movement {
-    text-align: center; 
-}
-
-.score {
-    text-align: center;
-}
-
-.player {
-    text-align: center;
-}
 
 .title {
-    text-align: center;
+    font-size: 60px;
+    color: white;
+    text-shadow: rgb(113, 118, 38);
+    padding-left: 72px;
+}
+.score, .movement {
+    font-size: 30px;
+    color: rgb(12, 50, 22);
+    text-shadow: 4px 4px 8px rgb(193, 190, 18);
+    text-transform: uppercase;
 }
 
 .level {
     text-align: left;
-    color: red;
+    color: rgb(140, 142, 146);
 }
 
 .goal {
     text-align: left;
-    color: red;
+    color: rgb(140, 142, 146);
 }
 
 #board {
     width: 500px;
     height: 500px;
-    background-color: rgb(112, 169, 188);
-    border: 5px solid rgb(245, 246, 247);
+    background-color: rgb(42, 100, 48);
+    border: 5px solid rgb(103, 26, 26);
     border-radius: 10px;
     margin: 0 auto;
     display: flex;
@@ -58,11 +63,12 @@ body {
     /* Stay in place */
     z-index: 1;
     /* Sit on top */
-    left: 0;
+    left: 10;
     top: 0;
     width: 100%;
     /* Full width */
     height: 100%;
+    justify-content: center;
     /* Full height */
     /* Enable scroll if needed */
     // background-color: rgb(0, 0, 0);
@@ -71,71 +77,138 @@ body {
     /* Black w/ opacity */
 }
 
-.gameOver-inner {
-  //background-color: rgb(247, 244, 244);
-  background-color: rgba(23, 134, 146, 0.4);
-  margin: 5% auto; /* 5% from the top and centered */
-  padding: 20px;
-  border: 1px solid rgb(2, 61, 75);
-  width: 50%; /* Could be more or less, depending on screen size */
-  height: 50%;
-}
-
 
 .game-over-label {
-    color: rgb(255, 255, 255);
-    font-family: cursive;
+    color: rgb(104, 13, 13);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-transform: uppercase;
-    text-shadow: 4px 4px 8px rgb(2, 26, 30);
+    text-shadow: 4px 4px 8px rgb(193, 190, 18);
     text-align: center;
     font-size: 75px;
-}
-
-.gameWon {
-    display: none;
-    /* Hidden by default */
-    position: fixed;
-    /* Stay in place */
-    z-index: 5;
-    /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%;
-    /* Full width */
-    height: 100%;
-    /* Full height */
-    /* Enable scroll if needed */
-    // background-color: rgb(0, 0, 0);
-    // /* Fallback color */
-    // background-color: rgba(0, 0, 0, 0.4);
-    // /* Black w/ opacity */
-}
-
-.gameWon-inner {
-  background-color: rgb(247, 244, 244);
-  /* Fallback color */
-  background-color: rgba(56, 85, 128, 0.4);
-  /* Black w/ opacity */
-  margin: 5% auto; /* 5% from the top and centered */
-  padding: 20px;
-  border: 1px solid rgb(166, 206, 229);
-  width: 50%; /* Could be more or less, depending on screen size */
-  /* Height: 100vh; */
-  /* Height: calc(100vh - 100px); */
-  height: 50%;
 }
 
 .game-won-label {
-    color: rgb(123, 159, 201);
-    font-family: cursive;
+    color: rgb(117, 11, 11);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-transform: uppercase;
-    text-shadow: 4px 4px 8px rgb(20, 133, 220);
+    text-shadow: 4px 4px 8px rgb(193, 190, 18);
     text-align: center;
     font-size: 75px;
 }
 
-// .re-start-button-div {
-//     width: 70%;
-//     justify-content: center;
-// }
 
+.gameWon {
+    display: none;
+    position: fixed;
+    z-index: 5;
+    left: 0;
+    top: 0;
+    width: 70%;
+    height: 70%;
+    justify-content: center;
+}
+
+.gameWon-inner {
+  background-color: rgb(12, 50, 22);
+  margin: 5% auto; 
+  padding: 20px;
+  border: 1px solid rgb(193, 190, 18);
+  width: 50%; 
+  height: 50%;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.gameOver-inner {
+    //background-color: rgb(247, 244, 244);
+    background-color: rgb(12, 50, 22);
+    margin: 5% auto; /* 5% from the top and centered */
+    padding: 20px;
+    border: 1px solid rgb(193, 190, 18);
+    width: 50%; /* Could be more or less, depending on screen size */
+    height: 50%;
+    border-radius: 10px;
+    margin: 0 auto;
+  }
+
+.re-start-button-div {
+    width: 70%;
+    justify-content: center;
+}
+
+
+.startGameModal {
+    display: block; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(255, 254, 254); /* Fallback color */
+    background-color: rgba(255, 255, 255, 0.4); /* Black w/ opacity */
+}
+
+
+.startGameModalContent {
+    // background-color: #fefefe;
+    // background: url('../images/christmas-flakes-copy.gif'); 
+    // background-repeat: repeat; 
+    margin: 2% auto; /* 15% from the top and centered */
+    padding: 20px;
+    // border: 1px solid rgb(255, 255, 255);
+    width: 65%; /* Could be more or less, depending on screen size */
+    height: 85%;
+   
+}
+.video {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.game-start-model-label, .gamePlay, .gameInstructions {
+// .game-start-model-label, .button-container {
+    top: -600px;
+    position: relative;
+    text-align: center;
+    margin: 15px;
+    color: azure;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif, sans-serif;
+    font-style: italic;
+    text-shadow: 4px 4px 8px rgb(193, 190, 18);
+    font-size: 100px;
+}
+
+// .gamePlay, .gameInstructions {
+.gamePlay, .gameInstructions {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+.gamePlay:hover,
+.gameInstructions:hover,
+.gamePlay:focus, .game-won-label:focus {
+color: black;
+text-decoration: none;
+cursor: pointer;
+}
+
+
+.button-container {
+    top: -600px;
+    // position: relative;
+    text-align: center;
+    height: 30%;
+    display: flex;
+    align-items: flex-end;
+    // align-items: floor($number: 300);
+    // column-gap: 30px;
+    justify-content: space-around;
+}

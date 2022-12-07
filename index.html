@@ -11,20 +11,49 @@
   </head>
 
   <body>
-    
 
-    <div><h1 class="score">Score: <span id="score">0</span></h1></div>
-    <div><h1 class="movement">Movements: <span id="movements">20</span></h1></div>
-    <div><h1 class="player">Player:</h1></div>
-    <div> <h1 class="title">Xmas Clash</h1></div>
+    <!-- <div class="tenor-gif-embed" data-postid="19371372" data-share-method="host" data-aspect-ratio="1.77778" data-width="100%"><a href="https://tenor.com/view/christmas-flakes-gif-19371372">Christmas Flakes GIF</a>from <a href="https://tenor.com/search/christmas+flakes-gifs">Christmas Flakes GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script> -->
+
+    <div id="startGameModal" class="startGameModal">
+      <!-- Modal content -->
+      <div class="startGameModalContent">
+        <video autoplay loop muted class="video">
+          <source src="./images/christmas-flakes.mp4" type="video/mp4"/>
+        </video>
+        <span class="closeStartGameModal">&times;</span>
+        <h2 class="game-start-model-label">
+          WELCOME!
+        </h2>
+        <div class="button-container">
+          <button class="gamePlay">Play</button>
+          <button class="gameInstructions">Instructions</button>
+        </div>
+        
+      </div>
+    
+    </div>
+
+  </div>
+    <header>
+      <!-- <div class='neon-text'>SCORE: <span id="score">0</span></div> -->
+      <!-- <div class="score">Score: <span id="score">0</span></div> -->
+      <div class="score">SCORE: <span id="score">0</span></div>
+      <div class="title"><img src="./images/title.png"/> </div>
+      <div class="movement">MOVEMENTS: <span id="movements">20</span></div>
+    </header>
+
+
+    
+    <!-- <div><h1 class="player">Player:</h1></div> -->
+   
 
     <div id="board">
       <!-- img 0-0
            img 0-1 -->
     </div>
 
-    <div><h1 class="level">Level:<span id="level"> 1</span></h1></div>
-    <div><h1 class="goal">Goal:</h1></div>
+    <!-- <div><h1 class="level">Level:<span id="level"> 1</span></h1></div>
+    <div><h1 class="goal">Goal : Acheive 800 points before running out of movements</h1> </div> -->
 
     <div id="gameOver" class="gameOver">
       <div class="gameOver-inner">
