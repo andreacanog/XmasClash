@@ -44,11 +44,7 @@ export default class Board {
             this.grid.push(row); //2D array  [[img, img, img, img, img, img, img, img]]
         }
 
-        // if (this.updateByUser === false) {
-        //     this.movements += 0
-        // }
-
-        //console.log(this.updateByUser)
+    
     }
 
     randomBall() {
@@ -425,7 +421,7 @@ export default class Board {
         for (let col = 0; col < this.columns; col++) { // column 0 
             let idx = this.rows - 1 // idx = 8
             for (let row = this.columns - 1; row >= 0; row --) {  // start at column 0 row 8
-                // console.log(this.grid[row][col])
+
                 if (!this.grid[row][col].src.includes("blank")){ // we only care about img that are blank 
                     this.grid[idx][col].src = this.grid[row][col].src; // set the img that is blank with the next that is not 
                     idx -= 1
