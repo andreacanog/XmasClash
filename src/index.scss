@@ -3,8 +3,9 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif, sans-serif;
-    font-style: italic;
+    font-family: cursive;
+    // font-style: italic;
+    font-weight: bolder;
     color: rgb(140, 142, 146);
     // text-align: center;
 }
@@ -25,8 +26,9 @@ header {
 .score, .movement {
     font-size: 30px;
     color: rgb(12, 50, 22);
-    text-shadow: 4px 4px 8px rgb(193, 190, 18);
+    text-shadow: 4px 4px 8px rgb(233, 233, 229);
     text-transform: uppercase;
+    font-weight: 200;
 }
 
 .level {
@@ -84,7 +86,7 @@ header {
     text-transform: uppercase;
     text-shadow: 4px 4px 8px rgb(193, 190, 18);
     text-align: center;
-    font-size: 75px;
+    font-size: 100px;
 }
 
 .game-won-label {
@@ -93,7 +95,7 @@ header {
     text-transform: uppercase;
     text-shadow: 4px 4px 8px rgb(193, 190, 18);
     text-align: center;
-    font-size: 75px;
+    font-size: 110px;
 }
 
 
@@ -172,43 +174,41 @@ header {
     overflow: hidden;
 }
 .game-start-model-label, .gamePlay, .gameInstructions {
-// .game-start-model-label, .button-container {
     top: -600px;
     position: relative;
     text-align: center;
     margin: 15px;
-    color: azure;
+    color: rgb(14, 46, 10);
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif, sans-serif;
     font-style: italic;
-    text-shadow: 4px 4px 8px rgb(193, 190, 18);
+    text-shadow: 4px 4px 8px rgb(255, 255, 255);
     font-size: 100px;
 }
 
-// .gamePlay, .gameInstructions {
 .gamePlay, .gameInstructions {
-    color: #aaa;
+    color: rgb(6, 33, 13);
     float: right;
     font-size: 28px;
     font-weight: bold;
+    border: 5px solid rgb(103, 26, 26);
+    border-radius: 10px;
   }
   
 .gamePlay:hover,
 .gameInstructions:hover,
+
 .gamePlay:focus, .game-won-label:focus {
-color: black;
-text-decoration: none;
-cursor: pointer;
+    color: rgb(62, 7, 7);
+    text-decoration: none;
+    cursor: pointer;
 }
 
 
 .button-container {
     top: -600px;
-    // position: relative;
     text-align: center;
     height: 30%;
     display: flex;
     align-items: flex-end;
-    // align-items: floor($number: 300);
-    // column-gap: 30px;
     justify-content: space-around;
 }
