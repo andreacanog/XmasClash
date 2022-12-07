@@ -299,7 +299,6 @@ export default class Board {
                     ball4.src = './images/blank.png'
                     ball5.src = './images/blank.png'
                     this.score += 30;
-                    // this.movements -= 1;
                     this.checkIfGameWonOrLost();
                 }
             }
@@ -317,9 +316,9 @@ export default class Board {
                 let haveStar = false;
                 let matchingStar = false;
                 
-                if (haveStar !== false) {
-                    matchingStar = this.allowThreeWithStar(ball1, ball2, ball3, haveStar);
-                }
+                // if (haveStar !== false) {
+                //     matchingStar = this.allowThreeWithStar(ball1, ball2, ball3, haveStar);
+                // }
                 console.log(" horizontal haveStar: ", haveStar);
                 console.log(" horizontal matchingStar: ", matchingStar);
 
@@ -339,9 +338,9 @@ export default class Board {
                 let haveStar = false;
                 let matchingStar = false;
 
-                if (haveStar !== false) {
-                    matchingStar = this.allowThreeWithStar(ball1, ball2, ball3, haveStar);
-                }
+                // if (haveStar !== false) {
+                //     matchingStar = this.allowThreeWithStar(ball1, ball2, ball3, haveStar);
+                // }
                 console.log(" vertical haveStar: ", haveStar);
                 console.log(" vertical matchingStar: ", matchingStar);
 
