@@ -230,7 +230,6 @@ export default class Board {
                     ball3.src = './images/blank.png'
                     ball4.src = ballsSource + this.randomBallWithLines() + ".png" 
                     this.score += 20;
-                    // this.movements -= 1;
                     this.checkIfGameWonOrLost();
                 }
 
@@ -253,7 +252,6 @@ export default class Board {
                     ball3.src = './images/blank.png'
                     ball4.src =  ballsSource + this.randomBallWithLines() + ".png" 
                     this.score += 20;
-                    // this.movements -= 1;
                     this.checkIfGameWonOrLost();
                 }
             }
@@ -279,7 +277,6 @@ export default class Board {
                     ball4.src = './images/blank.png'
                     ball5.src = './images/blank.png'
                     this.score += 30;
-                    // this.movements -= 1;
                     this.checkIfGameWonOrLost();
                 }
             }
