@@ -181,9 +181,9 @@ export default class Board {
                     ball1.src = './images/blank.png'
                     ball2.src = './images/blank.png'
                     ball3.src = './images/blank.png'
-                    this.score += 10;
-                    //this.movements -= 1;
+                    this.score += 10; 
                     this.checkIfGameWonOrLost();
+                    
                 }
             }
         }
