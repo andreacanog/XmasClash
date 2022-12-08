@@ -460,7 +460,7 @@ export default class Board {
     }
 
     gameWon() {
-        if (this.score >= 300) {
+        if (this.score >= 500) {
             document.getElementById("gameWon").style.display = "block";
         }
     }

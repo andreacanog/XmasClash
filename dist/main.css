@@ -60,6 +60,13 @@ header {
 }
 
 .gameOver {
+  position: fixed;
+  z-index: 1;
+  left: 10;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
   display: none;
   color: rgb(252, 252, 252);
   font-family: "Nerko One", cursive;

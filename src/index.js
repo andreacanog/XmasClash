@@ -63,4 +63,18 @@ window.onload = function () {
             board.movements = 20;
         }
     });
+
+
+    document.addEventListener("click", (event) => {
+        if (event.target.classList.contains("restart2")){
+            if (gameWonModal.style.display === "block") {
+                gameWonModal.style.display = "none";
+            } else if (gameOverModal.style.display === "block") {
+                gameOverModal.style.display = "none"
+            }
+    
+            board.score = 0;
+            board.movements = 20;
+        }
+    });
 }

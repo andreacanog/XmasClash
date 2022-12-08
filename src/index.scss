@@ -59,17 +59,17 @@ header {
 
 
 .gameOver {
-    // display: none;
+    //display: none;
     // /* Hidden by default */
-    // position: fixed;
+    position: fixed;
     // /* Stay in place */
-    // z-index: 1;
+    z-index: 1;
     // /* Sit on top */
-    // left: 10;
-    // top: 0;
-    // width: 100%;
-    // height: 100%;
-    // justify-content: center;
+    left: 10;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
 
     display: none;
     color: rgb(252, 252, 252);
@@ -91,7 +91,7 @@ header {
     // text-align: center;
     // font-size: 50px;
 
-
+    
     color: rgb(252, 252, 252);
     font-family: 'Nerko One', cursive;
     font-weight: bolder;
