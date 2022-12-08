@@ -1,5 +1,7 @@
 # **XmasClash**
 
+https://andreacanog.github.io/XmasClash/
+
 ## **Background:**
 
 XmasClash is a single-player image-matching game, where a player should acheive a certain amount ofpoints by swapping the Christmas ornaments on a 9 by 9 game board. In order for a valid match, there need to be three or more consecutive ornaments of the same color. When a match successfully takes place, the ornaments will be eliminated and replaced with new ones. These new ornaments could possibly create more matches. The goal of the game must be completed within a preset number of moves and scores. If the player does not successfully complete the the game, he will lose.
