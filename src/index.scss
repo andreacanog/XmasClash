@@ -5,7 +5,7 @@ body {
     background-size: cover;
     font-family: 'Nerko One', cursive;
     font-weight: bolder;
-    color: rgb(140, 142, 146);
+    color: rgb(255, 255, 255);
     background-size: cover;
     height: 100vh;
 }
@@ -321,13 +321,17 @@ header {
 
 .game-instructions-container {
     display: none;
-    background-color: pink;
+    background-color: rgb(131, 215, 140);
     z-index: 1;
     position: absolute;
     left: 360px;
     top: 160px;
     width: 50%;
     height: 50%;
+    //background: linear-gradient(400deg, #47882f, #023205);
+    background-color: rgba(16, 67, 22, 0.765) !important;
+    border: 5px solid rgb(123, 171, 75);
+    border-radius: 10px;
 }
 
 .goal {
