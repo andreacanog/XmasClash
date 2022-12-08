@@ -45,6 +45,7 @@ window.onload = function () {
     intructionsButton.addEventListener('mouseover', function handleMouseOver() {
         instructionsContainer.style.display = 'block';
       });
+    //instructionsContainer.style.display = "block";
       
     intructionsButton.addEventListener('mouseout', function handleMouseOut() {
         instructionsContainer.style.display = 'none';
