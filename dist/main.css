@@ -325,4 +325,7 @@ header {
   text-shadow: 4px 4px 8px rgb(210, 207, 17);
   bottom: auto;
   display: flex;
+  bottom: 136px;
+  left: 20px;
+  position: absolute;
 }
