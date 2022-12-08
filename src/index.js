@@ -11,7 +11,7 @@ window.onload = function () {
     let gameOverModal = document.getElementById("gameOver");
     const board = new Board()
     document.addEventListener("click", (event) => {
-        
+    
         if (event.target.classList.contains("gamePlay")){
             startGameModal.style.display = "none";
 

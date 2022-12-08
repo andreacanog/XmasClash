@@ -302,8 +302,8 @@ header {
 
 
 #music-switch {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     position: absolute;
     top: 24px;
     left: 23px;
@@ -330,3 +330,11 @@ header {
     height: 50%;
 }
 
+.goal {
+    font-size: 40px;
+    font-family: 'Nerko One', cursive;
+    color: rgb(255, 255, 255);
+    text-shadow: 4px 4px 8px rgb(210, 207, 17);
+    bottom: auto;
+    display: flex;
+}

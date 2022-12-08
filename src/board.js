@@ -155,13 +155,14 @@ export default class Board {
     }
 
     clashThree() {
+        let crush3SoundElement = document.getElementById("crush3");
         for (let row = 0; row < this.rows; row++) {
             for (let col = 0; col < this.columns - 2; col++) {
                 let ball1 = this.grid[row][col];
                 let ball2 = this.grid[row][col + 1];
                 let ball3 = this.grid[row][col + 2];
                 // let haveStar = this.checkIfWeHaveStart(ball1, ball2, ball3);
-                let haveStar = false
+                // let haveStar = false
                 let matchingStar = false;
 
                 // check if matching star only if we have a star. 
@@ -177,6 +178,7 @@ export default class Board {
                     ball1.src = './images/blank.png'
                     ball2.src = './images/blank.png'
                     ball3.src = './images/blank.png'
+                    crush3SoundElement.play()
                     this.score += 10; 
                     this.checkIfGameWonOrLost();
                     
@@ -202,8 +204,8 @@ export default class Board {
                     ball1.src = './images/blank.png'
                     ball2.src = './images/blank.png'
                     ball3.src = './images/blank.png'
+                    crush3SoundElement.play()
                     this.score += 10;
-                    // this.movements -= 1;
                     this.checkIfGameWonOrLost();
                 }
             }
@@ -211,7 +213,7 @@ export default class Board {
     }
 
     clashFour() {
-
+        let crush4SoundElement = document.getElementById("crush4");
         for (let row = 0; row < this.rows; row++) {
             for (let col = 0; col < this.columns - 3; col++) {
                 
@@ -224,7 +226,8 @@ export default class Board {
                     ball1.src = './images/blank.png'
                     ball2.src = './images/blank.png'
                     ball3.src = './images/blank.png'
-                    ball4.src = ballsSource + this.randomBallWithLines() + ".png" 
+                    ball4.src = './images/blank.png' //ballsSource + this.randomBallWithLines() + ".png" 
+                    crush4SoundElement.play()
                     this.score += 20;
                     this.checkIfGameWonOrLost();
                 }
@@ -246,7 +249,8 @@ export default class Board {
                     ball1.src = './images/blank.png'
                     ball2.src = './images/blank.png'
                     ball3.src = './images/blank.png'
-                    ball4.src =  ballsSource + this.randomBallWithLines() + ".png" 
+                    ball4.src =  './images/blank.png' //ballsSource + this.randomBallWithLines() + ".png" 
+                    crush4SoundElement.play()
                     this.score += 20;
                     this.checkIfGameWonOrLost();
                 }
@@ -255,6 +259,7 @@ export default class Board {
     }
 
     clashFive() {
+        let crush5SoundElement = document.getElementById("crush5");
         for (let row = 0; row < this.rows; row++) {
             for (let col = 0; col < this.columns - 4; col++) {
                
@@ -267,11 +272,12 @@ export default class Board {
 
                 if ((ball1.src === ball2.src) && (ball2.src === ball3.src) && (ball3.src === ball4.src) && (ball4.src === ball5.src) && !ball1.src.includes("blank")) {
             
-                    ball1.src = './images/blank.png'
-                    ball2.src = './images/blank.png'
-                    ball3.src = './images/blank.png'
-                    ball4.src = './images/blank.png'
-                    ball5.src = './images/blank.png'
+                    ball1.src = './images/blank.png';
+                    ball2.src = './images/blank.png';
+                    ball3.src = './images/blank.png';
+                    ball4.src = './images/blank.png';
+                    ball5.src = './images/blank.png';
+                    crush5SoundElement.play();
                     this.score += 30;
                     this.checkIfGameWonOrLost();
                 }
@@ -289,11 +295,12 @@ export default class Board {
                 
                 if ((ball1.src === ball2.src) && (ball2.src === ball3.src) && (ball3.src === ball4.src) && (ball4.src === ball5.src) && !ball1.src.includes("blank") ) {
             
-                    ball1.src = './images/blank.png'
-                    ball2.src = './images/blank.png'
-                    ball3.src = './images/blank.png'
-                    ball4.src = './images/blank.png'
-                    ball5.src = './images/blank.png'
+                    ball1.src = './images/blank.png';
+                    ball2.src = './images/blank.png';
+                    ball3.src = './images/blank.png';
+                    ball4.src = './images/blank.png';
+                    ball5.src = './images/blank.png';
+                    crush5SoundElement.play();
                     this.score += 30;
                     this.checkIfGameWonOrLost();
                 }
@@ -453,12 +460,13 @@ export default class Board {
     }
 
     gameWon() {
-        if (this.score >= 100) {
+        if (this.score >= 300) {
             document.getElementById("gameWon").style.display = "block";
         }
     }
 
     
+
 
 
 
