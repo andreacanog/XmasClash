@@ -299,3 +299,14 @@ header {
     touch-action: manipulation;
     white-space: nowrap;
 }
+// .music-container {
+//     position: relative;
+// }
+
+#music-switch {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 24px;
+    left: 23px;
+}
