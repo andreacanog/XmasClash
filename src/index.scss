@@ -299,9 +299,7 @@ header {
     touch-action: manipulation;
     white-space: nowrap;
 }
-// .music-container {
-//     position: relative;
-// }
+
 
 #music-switch {
     width: 50px;
@@ -310,3 +308,25 @@ header {
     top: 24px;
     left: 23px;
 }
+
+.personal-links {
+    display: flex;
+    justify-content: center;
+    img {
+        padding: 10px;
+    }
+}
+
+
+
+.game-instructions-container {
+    display: none;
+    background-color: pink;
+    z-index: 1;
+    position: absolute;
+    left: 360px;
+    top: 160px;
+    width: 50%;
+    height: 50%;
+}
+

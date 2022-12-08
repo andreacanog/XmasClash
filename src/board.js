@@ -315,8 +315,7 @@ export default class Board {
                 // if (haveStar !== false) {
                 //     matchingStar = this.allowThreeWithStar(ball1, ball2, ball3, haveStar);
                 // }
-                console.log(" horizontal haveStar: ", haveStar);
-                console.log(" horizontal matchingStar: ", matchingStar);
+                
 
                 if (((ball1.src === ball2.src) && (ball2.src === ball3.src) || matchingStar) && !ball1.src.includes("blank") ){
                     return true;
@@ -337,9 +336,7 @@ export default class Board {
                 // if (haveStar !== false) {
                 //     matchingStar = this.allowThreeWithStar(ball1, ball2, ball3, haveStar);
                 // }
-                console.log(" vertical haveStar: ", haveStar);
-                console.log(" vertical matchingStar: ", matchingStar);
-
+              
                 if (((ball1.src === ball2.src) && (ball2.src === ball3.src) || matchingStar) && !ball1.src.includes("blank") ) {
                     return true; 
                 }
@@ -460,6 +457,16 @@ export default class Board {
             document.getElementById("gameWon").style.display = "block";
         }
     }
+
+    
+
+
+
+
+
+
+
+
 
     // checkIfWeHaveStart(ball1, ball2, ball3) {
     //     console.log("checkIfWeHaveStart");

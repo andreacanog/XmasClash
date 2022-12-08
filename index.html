@@ -27,18 +27,21 @@
         </h2>
         <div class="button-container">
           <button class="gamePlay">Play</button>
-          <button class="gameInstructions">Instructions</button>
-        </div>
-        
-      </div>
+          <!-- <div class="game-instructions-container"> -->
+          <button class="gameInstructions" id="gameInstructions">Instructions </button>
+            <!-- <p>How to play this game </p>
+          </div> -->
     
+          <!-- </div> -->
+        
+        </div>
+    
+      </div>
+
     </div>
 
-  </div>
-
     <header>
-      <!-- <div class='neon-text'>SCORE: <span id="score">0</span></div> -->
-      <!-- <div class="score">Score: <span id="score">0</span></div> -->
+ 
       <div class="score">Score: <span id="score">0</span></div>
       <div class="title"><img src="./images/title.png"/> </div>
       <div class="movement">Moves Left: <span id="movements">20</span></div>
@@ -50,12 +53,10 @@
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Nerko+One&family=Roboto:wght@300&display=swap');
     </style>
-    <!-- <div><h1 class="player">Player:</h1></div> -->
+
    
 
     <div id="board">
-      <!-- img 0-0
-           img 0-1 -->
     </div>
 
     <!-- <div><h1 class="level">Level:<span id="level"> 1</span></h1></div>
@@ -71,40 +72,56 @@
           </div>
 
       </div>
-  </div>
-
-  <div id="gameWon" class="gameWon">
-    <div class="gameWon-inner">
-      <img src="./images/gamewin.png"/>
-        <h2 class="game-won-label">
-            You're on the nice list this year!
-        </h2>
-        <div class="button-container2">
-          <button class="nextLevel">Next Level</button>
-          <button class="restart">Restart</button>
-        </div>
-    </div>
-  </div>
-
-  <div class="music-conatiner">
-    <img id="music-switch" src="./images/start.png" alt="Music-Switch">
-    <audio id="music-element" loop>
-      <source src="./audio/backgorudn-music.mp3">
-    </audio>
-
-    <div class="music-clash">
-      <audio class="crush3">
-        <source src="">
-      </audio>
-      <audio class="crush4">
-        <source src="">
-      </audio>
-      <audio class="crush5">
-        <source src="">
-      </audio>
     </div>
 
-  </div>
+    <div id="gameWon" class="gameWon">
+      <div class="gameWon-inner">
+        <img src="./images/gamewin.png"/>
+          <h2 class="game-won-label">
+              You're on the nice list this year!
+          </h2>
+          <div class="button-container2">
+            <button class="nextLevel">Next Level</button>
+            <button class="restart">Restart</button>
+          </div>
+      </div>
+    </div>
+
+    <div class="music-conatiner">
+      <img id="music-switch" src="./images/pause.png" alt="Music-Switch">
+      <audio id="music-element" loop>
+        <source src="./audio/backgorudn-music.mp3">
+      </audio>
+
+      <div class="music-clash">
+        <audio class="crush3">
+          <source src="./audio/crush3.mp3">
+        </audio>
+        <audio class="crush4">
+          <source src="./audio/crush4.mp3">
+        </audio>
+        <audio class="crush5">
+          <source src="./audio/crush5.mp3">
+        </audio>
+      </div>
+
+    </div>
+    <div class="personal-links">
+      <div class="github-link-div">
+              <a href="https://github.com/andreacanog" target="_blank">
+                  <img alt="Github" src="./images/github.png" width="50" height="50">
+              </a>
+      </div>
+      <div class="linkedin-link-div">
+          <a href="https://www.linkedin.com/in/andrea-cano-gisbert-4402151b8/" target="_blank">
+              <img alt="linkedin" src="./images/linkedin_logo.png" width="50" height="50">
+          </a>
+      </div>
+    </div>
+
+    <div class="game-instructions-container" id="instructions-div">
+      <h2>INSTRUCTION</h2>
+    </div>
     
   </body>
 
