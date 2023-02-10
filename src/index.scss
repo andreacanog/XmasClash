@@ -23,7 +23,7 @@ header {
     text-shadow: rgb(113, 118, 38);
     padding-left: 87px;
 }
-.score, .movement {
+.score, .movement, .level {
     font-size: 45px;
     color: rgb(255, 255, 255);
     text-shadow: 4px 4px 8px rgb(48, 101, 65);
@@ -31,9 +31,12 @@ header {
     font-weight: 200;
 }
 
+
 .level {
     text-align: left;
-    color: rgb(140, 142, 146);
+    color: rgb(255, 255, 255);
+    text-shadow: 4px 4px 8px rgb(48, 101, 65);
+    margin-left: 25px;
 }
 
 .goal {
