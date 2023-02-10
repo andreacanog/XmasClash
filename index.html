@@ -46,6 +46,7 @@
       <div class="title"><img src="./images/title.png"/> </div>
       <div class="movement">Moves Left: <span id="movements">20</span></div>
     </header>
+    <div class="level">Level: <span id="current-level">1</span></div>
    
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -83,18 +84,18 @@
               You're on the nice list this year!
           </h2>
           <div class="button-container2">
-            <button class="nextLevel">Next Level</button>
+            <button id="nextLevel" class="nextLevel">Next Level</button>
             <button class="restart">Restart</button>
           </div>
       </div>
     </div>
 
     <div class="music-conatiner">
-      <img id="music-switch" src="./images/pause.png" alt="Music-Switch">
+      <!-- <img id="music-switch" src="./images/pause.png" alt="Music-Switch"> -->
       <audio id="music-element" loop>
         <source src="./audio/backgorudn-music.mp3">
       </audio>
-
+    
       <div class="music-clash">
         <audio class="crush3" id="crush3">
           <source src="./audio/crush3.mp3">
@@ -106,7 +107,9 @@
           <source src="./audio/crush5.mp3">
         </audio>
       </div>
-      <div class="goal"> Goal: 500 points </div>
+
+      <div class="goal"> Goal: &nbsp<span id="goal-points"> 500 </span> &nbsp points </div>
+      
     </div>
     <div class="personal-links">
       <div class="github-link-div">

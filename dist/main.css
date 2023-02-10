@@ -1,3 +1,346 @@
-body{background:url("../images/background.png");background-position:center;background-repeat:no-repeat;background-size:cover;font-family:"Nerko One",cursive;font-weight:bolder;color:#fff;background-size:cover;height:100vh}header{display:flex;align-items:center;justify-content:space-around}.title{font-size:60px;color:#fff;text-shadow:#717626;padding-left:87px}.score,.movement{font-size:45px;color:#fff;text-shadow:4px 4px 8px #306541;font-weight:200}.level{text-align:left;color:#8c8e92}.goal{text-align:left;color:#8c8e92}#board{width:500px;height:500px;background-color:#2a6430;border:5px solid #671a1a;border-radius:10px;margin:0 auto;display:flex;flex-wrap:wrap}#board img{width:55px;height:55px}.gameOver{position:fixed;z-index:1;left:10;top:0;width:100%;height:100%;justify-content:center;display:none;color:#fcfcfc;font-family:"Nerko One",cursive;font-weight:bolder;text-transform:uppercase;text-shadow:4px 4px 8px #c1be12;text-align:center;font-size:35px}.game-over-label{color:#fcfcfc;font-family:"Nerko One",cursive;font-weight:bolder;text-transform:uppercase;text-shadow:4px 4px 8px #c1be12;text-align:center;font-size:35px}.game-won-label{color:#fcfcfc;font-family:"Nerko One",cursive;font-weight:bolder;text-transform:uppercase;text-shadow:4px 4px 8px #c1be12;text-align:center;font-size:35px}.gameWon{display:none;position:fixed;z-index:5;left:0;top:0;width:100vw;height:100vh;justify-content:center}.gameWon-inner{background-color:#0c3216;margin:5% auto;padding:80px;border:1px solid #c1be12;width:50%;height:40%;border-radius:10px;margin:145 auto;text-align:center}.gameOver-inner{background-color:#0c3216;margin:5% auto;padding:80px;border:1px solid #c1be12;width:50%;height:40%;border-radius:10px;margin:145 auto;text-align:center}.re-start-button-div{width:70%;justify-content:center}.startGameModal{display:block;position:fixed;z-index:1;left:0;top:0;width:100%;height:100%;overflow:auto;background-color:#fffefe;background-color:rgba(255,255,255,.4)}.startGameModalContent{margin:2% auto;padding:20px;width:65%;height:85%}.video{position:relative;width:100%;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}.game-start-model-label,.gamePlay,.gameInstructions{top:-600px;position:relative;text-align:center;margin:15px;color:#0e2e0a;font-family:"Nerko One",cursive;text-shadow:4px 4px 8px #fff;font-size:100px}.gamePlay,.gameInstructions{color:#06210d;float:right;font-size:28px;font-weight:bold;border:5px solid #671a1a;border-radius:10px}.gamePlay:hover,.gameInstructions:hover,.gamePlay:focus,.game-won-label:focus{color:#f11e1e;text-decoration:none;cursor:pointer}.gamePlay,.gameInstructions{display:block;position:relative;padding:12px 27px;border-radius:12px;font-size:1.1rem;color:#410b0b;background:#fff;will-change:transform;transform:translateY(-4px);transition:transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1)}.button-container{top:-600px;text-align:center;height:30%;display:flex;align-items:flex-end;justify-content:space-around;margin-top:-60px}.button-container2{top:-600px;text-align:center;height:30%;display:flex;align-items:flex-end;justify-content:space-around;margin-top:80px}.nextLevel:hover,.restart:hover,.nextLevel:focus,.restart:focus{color:#3b0b0b;text-decoration:none;cursor:pointer}.nextLevel,.restart{background:linear-gradient(to bottom right, #5b4604, #b5af3b);border:0;border-radius:12px;color:#fff;cursor:pointer;display:inline-block;font-family:-apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:16px;font-weight:500;line-height:2.5;outline:rgba(0,0,0,0);padding:0 1rem;text-align:center;text-decoration:none;transition:box-shadow .2s ease-in-out;user-select:none;-webkit-user-select:none;touch-action:manipulation;white-space:nowrap}.button-container3{top:-600px;text-align:center;height:30%;display:flex;align-items:flex-end;justify-content:space-around}.restart2:hover,.restart2:focus{color:#3b0b0b;text-decoration:none;cursor:pointer}.restart2{background:linear-gradient(to bottom right, #5b4604, #b5af3b);border:0;border-radius:12px;color:#072b0b;cursor:pointer;display:inline-block;font-family:-apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:16px;font-weight:500;line-height:2.5;outline:rgba(0,0,0,0);padding:0 1rem;text-align:center;text-decoration:none;transition:box-shadow .2s ease-in-out;user-select:none;-webkit-user-select:none;touch-action:manipulation;white-space:nowrap}#music-switch{width:40px;height:40px;position:absolute;top:24px;left:23px}.personal-links{display:flex;justify-content:center}.personal-links img{padding:10px}.game-instructions-container{display:none;background-color:#83d78c;z-index:1;position:absolute;left:360px;top:160px;width:50%;height:50%;background-color:rgba(16,67,22,.923) !important;border:5px solid #7bab4b;border-radius:10px}#instructions-div>p{font-size:35px;color:#fff;margin-left:20px;margin-top:50px}.goal{font-size:40px;font-family:"Nerko One",cursive;color:#fff;text-shadow:4px 4px 8px #d2cf11;bottom:auto;display:flex;bottom:136px;left:20px;position:absolute}
+/*!*************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
+  \*************************************************************************************************************************************/
+body {
+  background: url("../images/background.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Nerko One", cursive;
+  font-weight: bolder;
+  color: rgb(255, 255, 255);
+  background-size: cover;
+  height: 100vh;
+}
 
-/*# sourceMappingURL=main.css.map*/
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.title {
+  font-size: 60px;
+  color: white;
+  text-shadow: rgb(113, 118, 38);
+  padding-left: 87px;
+}
+
+.score, .movement {
+  font-size: 45px;
+  color: rgb(255, 255, 255);
+  text-shadow: 4px 4px 8px rgb(48, 101, 65);
+  font-weight: 200;
+}
+
+.level {
+  text-align: left;
+  color: rgb(140, 142, 146);
+}
+
+.goal {
+  text-align: left;
+  color: rgb(140, 142, 146);
+}
+
+#board {
+  width: 500px;
+  height: 500px;
+  background-color: rgb(42, 100, 48);
+  border: 5px solid rgb(103, 26, 26);
+  border-radius: 10px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#board img {
+  width: 55px;
+  height: 55px;
+}
+
+.gameOver {
+  position: fixed;
+  z-index: 1;
+  left: 10;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  display: none;
+  color: rgb(252, 252, 252);
+  font-family: "Nerko One", cursive;
+  font-weight: bolder;
+  text-transform: uppercase;
+  text-shadow: 4px 4px 8px rgb(193, 190, 18);
+  text-align: center;
+  font-size: 35px;
+}
+
+.game-over-label {
+  color: rgb(252, 252, 252);
+  font-family: "Nerko One", cursive;
+  font-weight: bolder;
+  text-transform: uppercase;
+  text-shadow: 4px 4px 8px rgb(193, 190, 18);
+  text-align: center;
+  font-size: 35px;
+}
+
+.game-won-label {
+  color: rgb(252, 252, 252);
+  font-family: "Nerko One", cursive;
+  font-weight: bolder;
+  text-transform: uppercase;
+  text-shadow: 4px 4px 8px rgb(193, 190, 18);
+  text-align: center;
+  font-size: 35px;
+}
+
+.gameWon {
+  display: none;
+  position: fixed;
+  z-index: 5;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+}
+
+.gameWon-inner {
+  background-color: rgb(12, 50, 22);
+  margin: 5% auto;
+  padding: 80px;
+  border: 1px solid rgb(193, 190, 18);
+  width: 50%;
+  height: 40%;
+  border-radius: 10px;
+  margin: 145 auto;
+  text-align: center;
+}
+
+.gameOver-inner {
+  background-color: rgb(12, 50, 22);
+  margin: 5% auto;
+  padding: 80px;
+  border: 1px solid rgb(193, 190, 18);
+  width: 50%;
+  height: 40%;
+  border-radius: 10px;
+  margin: 145 auto;
+  text-align: center;
+}
+
+.re-start-button-div {
+  width: 70%;
+  justify-content: center;
+}
+
+.startGameModal {
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(255, 254, 254); /* Fallback color */
+  background-color: rgba(255, 255, 255, 0.4); /* Black w/ opacity */
+}
+
+.startGameModalContent {
+  margin: 2% auto; /* 15% from the top and centered */
+  padding: 20px;
+  width: 65%; /* Could be more or less, depending on screen size */
+  height: 85%;
+}
+
+.video {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.game-start-model-label, .gamePlay, .gameInstructions {
+  top: -600px;
+  position: relative;
+  text-align: center;
+  margin: 15px;
+  color: rgb(14, 46, 10);
+  font-family: "Nerko One", cursive;
+  text-shadow: 4px 4px 8px rgb(255, 255, 255);
+  font-size: 100px;
+}
+
+.gamePlay, .gameInstructions {
+  color: rgb(6, 33, 13);
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  border: 5px solid rgb(103, 26, 26);
+  border-radius: 10px;
+}
+
+.gamePlay:hover,
+.gameInstructions:hover,
+.gamePlay:focus, .game-won-label:focus {
+  color: rgb(241, 30, 30);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.gamePlay, .gameInstructions {
+  display: block;
+  position: relative;
+  padding: 12px 27px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  color: rgb(65, 11, 11);
+  background: rgb(255, 255, 255);
+  will-change: transform;
+  transform: translateY(-4px);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+
+.button-container {
+  top: -600px;
+  text-align: center;
+  height: 30%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  margin-top: -60px;
+}
+
+.button-container2 {
+  top: -600px;
+  text-align: center;
+  height: 30%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  margin-top: 80px;
+}
+
+.nextLevel:hover,
+.restart:hover,
+.nextLevel:focus, .restart:focus {
+  color: rgb(59, 11, 11);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nextLevel, .restart {
+  background: linear-gradient(to bottom right, #5b4604, #b5af3b);
+  border: 0;
+  border-radius: 12px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2.5;
+  outline: transparent;
+  padding: 0 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow 0.2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+}
+
+.button-container3 {
+  top: -600px;
+  text-align: center;
+  height: 30%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+}
+
+.restart2:hover,
+.restart2:focus {
+  color: rgb(59, 11, 11);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.restart2 {
+  background: linear-gradient(to bottom right, #5b4604, #b5af3b);
+  border: 0;
+  border-radius: 12px;
+  color: #072b0b;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2.5;
+  outline: transparent;
+  padding: 0 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow 0.2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+}
+
+#music-switch {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 24px;
+  left: 23px;
+}
+
+.personal-links {
+  display: flex;
+  justify-content: center;
+}
+.personal-links img {
+  padding: 10px;
+}
+
+.game-instructions-container {
+  display: none;
+  background-color: rgb(131, 215, 140);
+  z-index: 1;
+  position: absolute;
+  left: 360px;
+  top: 160px;
+  width: 50%;
+  height: 50%;
+  background-color: rgba(16, 67, 22, 0.923) !important;
+  border: 5px solid rgb(123, 171, 75);
+  border-radius: 10px;
+}
+
+#instructions-div > p {
+  font-size: 35px;
+  color: rgb(255, 255, 255);
+  margin-left: 20px;
+  margin-top: 50px;
+}
+
+.goal {
+  font-size: 40px;
+  font-family: "Nerko One", cursive;
+  color: rgb(255, 255, 255);
+  text-shadow: 4px 4px 8px rgb(210, 207, 17);
+  bottom: auto;
+  display: flex;
+  bottom: 136px;
+  left: 20px;
+  position: absolute;
+}

@@ -17,6 +17,8 @@ export default class Board {
         this.score = 0; 
         this.movements = 20;
         this.updatedByUser = false;
+        this.goalPoints = 500;
+        this.currentLevel = 1;
         this.ballObj = { 
             "GreenStar.png": "Green.png", 
             "PinkStar.png": "Pink.png",
@@ -152,6 +154,8 @@ export default class Board {
         this.clashThree()
         document.getElementById("score").innerText = this.score; // to get the score 
         document.getElementById("movements").innerText = this.movements
+        document.getElementById("goal-points").innerText = this.goalPoints
+        document.getElementById("current-level").innerText = this.currentLevel
     }
 
     clashThree() {
@@ -178,7 +182,7 @@ export default class Board {
                     ball1.src = './images/blank.png'
                     ball2.src = './images/blank.png'
                     ball3.src = './images/blank.png'
-                    crush3SoundElement.play()
+                    // crush3SoundElement.play()
                     this.score += 10; 
                     this.checkIfGameWonOrLost();
                     
@@ -204,7 +208,7 @@ export default class Board {
                     ball1.src = './images/blank.png'
                     ball2.src = './images/blank.png'
                     ball3.src = './images/blank.png'
-                    crush3SoundElement.play()
+                    // crush3SoundElement.play()
                     this.score += 10;
                     this.checkIfGameWonOrLost();
                 }
@@ -227,7 +231,7 @@ export default class Board {
                     ball2.src = './images/blank.png'
                     ball3.src = './images/blank.png'
                     ball4.src = './images/blank.png' //ballsSource + this.randomBallWithLines() + ".png" 
-                    crush4SoundElement.play()
+                    // crush4SoundElement.play()
                     this.score += 20;
                     this.checkIfGameWonOrLost();
                 }
@@ -250,7 +254,7 @@ export default class Board {
                     ball2.src = './images/blank.png'
                     ball3.src = './images/blank.png'
                     ball4.src =  './images/blank.png' //ballsSource + this.randomBallWithLines() + ".png" 
-                    crush4SoundElement.play()
+                    // crush4SoundElement.play()
                     this.score += 20;
                     this.checkIfGameWonOrLost();
                 }
@@ -277,7 +281,7 @@ export default class Board {
                     ball3.src = './images/blank.png';
                     ball4.src = './images/blank.png';
                     ball5.src = './images/blank.png';
-                    crush5SoundElement.play();
+                    // crush5SoundElement.play();
                     this.score += 30;
                     this.checkIfGameWonOrLost();
                 }
@@ -300,7 +304,7 @@ export default class Board {
                     ball3.src = './images/blank.png';
                     ball4.src = './images/blank.png';
                     ball5.src = './images/blank.png';
-                    crush5SoundElement.play();
+                    // crush5SoundElement.play();
                     this.score += 30;
                     this.checkIfGameWonOrLost();
                 }
@@ -454,16 +458,52 @@ export default class Board {
 
     
     gameOver() {
+        let lostModal = document.getElementById("gameOver")
         if (this.movements === 0) {
-            document.getElementById("gameOver").style.display = "block";
+            if (this.currentLevel === 1) {
+                setTimeout(() => {
+                    if (this.score < 500) {
+                        lostModal.style.display = "block";
+                    }
+                }, 1500)
+            } else if (this.currentLevel === 2) {
+                setTimeout(() => {
+                    if (this.score < 600) {
+                        lostModal.style.display = "block";
+                    }
+                }, 1500)
+            } else if (this.currentLevel === 3) {
+                setTimeout(() => {
+                    if (this.score < 700) {
+                        lostModal.style.display = "block";
+                    }
+                }, 1500)
+            }
         }
     }
 
     gameWon() {
-        if (this.score >= 500) {
-            document.getElementById("gameWon").style.display = "block";
+        let gameWonModal = document.getElementById("gameWon")
+        if (this.currentLevel === 1) {
+            if (this.score >= 500) {
+                gameWonModal.style.display = "block";
+            }
+        } else if (this.currentLevel === 2) {
+            if (this.score >= 600) {
+                gameWonModal.style.display = "block";
+            }
+        } else if (this.currentLevel === 3) {
+            if (this.score >= 700) {
+                gameWonModal.style.display = "block";
+            }
         }
     }
+
+    // nextLevel() {
+    //     if (this.score >= 500) {
+    //         document.getElementById("nextLevel").style.display = "block";
+    //     }       
+    // }
 
     
 
